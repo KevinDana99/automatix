@@ -3,42 +3,55 @@ import { Link, useLocation } from "react-router";
 
 // Assume these icons are imported from an icon library
 import {
-
   CalenderIcon,
   ChevronDownIcon,
   GridIcon,
   HorizontaLDots,
- Config,
+  Config,
   Messages,
   Whatsapp,
   Facebook,
   Instagram,
   Agent,
-  Circle
+  Circle,
 } from "../icons";
 import { useSidebar } from "../context/SidebarContext";
-
 
 type NavItem = {
   name: string;
   icon: React.ReactNode;
   path?: string;
-  subItems?: { name: string; path: string; pro?: boolean; new?: boolean,  icon?: React.ReactNode; }[];
+  subItems?: {
+    name: string;
+    path: string;
+    pro?: boolean;
+    new?: boolean;
+    icon?: React.ReactNode;
+  }[];
 };
 
 const navItems: NavItem[] = [
-   {
+  {
     icon: <Agent />,
-    name: "Agentes",
-    path: "/", 
-  
+    name: "Chat IA",
+    path: "/chat",
   },
   {
-    path: '/integraciones',
+    icon: <Agent />,
+    name: "Agentes",
+    path: "/",
+  },
+  {
+    path: "/integraciones",
     icon: <GridIcon />,
     name: "Integraciones",
-    subItems: [{icon: <Circle/>, name: "Workana", path: "/workana" },{icon: <Instagram/>, name: "Instagram", path: "/instagram", }, {icon: <Facebook/>, name: "Facebook", path: "/facebook", pro: false }, {icon: <Whatsapp/>, name: "Whatsapp", path: "/whatsapp", pro: false ,}],
-  }, 
+    subItems: [
+      { icon: <Circle />, name: "Workana", path: "/workana" },
+      { icon: <Instagram />, name: "Instagram", path: "/instagram" },
+      { icon: <Facebook />, name: "Facebook", path: "/facebook", pro: false },
+      { icon: <Whatsapp />, name: "Whatsapp", path: "/whatsapp", pro: false },
+    ],
+  },
   {
     icon: <CalenderIcon />,
     name: "Calendar",
@@ -49,12 +62,9 @@ const navItems: NavItem[] = [
     name: "Conversaciones",
     path: "/messages",
   },
-
-
 ];
 
 const othersItems: NavItem[] = [
-
   {
     icon: <Config />,
     name: "Configuracion",
@@ -157,7 +167,7 @@ const AppSidebar: React.FC = () => {
                     : "menu-item-icon-inactive"
                 }`}
               >
-               {nav.icon}
+                {nav.icon}
               </span>
               {(isExpanded || isHovered || isMobileOpen) && (
                 <span className="menu-item-text">{nav.name}</span>
@@ -211,47 +221,44 @@ const AppSidebar: React.FC = () => {
             >
               <ul className="mt-2 space-y-1 ml-9">
                 {nav.subItems.map((subItem) => (
-                   <div   className={`flex content-center items-center menu-dropdown-item ${
-                        isActive(subItem.path)
-                          ? "menu-dropdown-item-active"
-                          : "menu-dropdown-item-inactive"
-                      }`}>         <span
-                 
-                >
-                  {subItem.icon}
-                </span>
-                  <li key={subItem.name}>
-                    <Link
-                      to={subItem.path}
-                    
-                    >
-                      {subItem.name}
-                      <span className="flex items-center gap-1 ml-auto">
-                        {subItem.new && (
-                          <span
-                            className={`ml-auto ${
-                              isActive(subItem.path)
-                                ? "menu-dropdown-badge-active"
-                                : "menu-dropdown-badge-inactive"
-                            } menu-dropdown-badge`}
-                          >
-                            new
-                          </span>
-                        )}
-                        {subItem.pro && (
-                          <span
-                            className={`ml-auto ${
-                              isActive(subItem.path)
-                                ? "menu-dropdown-badge-active"
-                                : "menu-dropdown-badge-inactive"
-                            } menu-dropdown-badge`}
-                          >
-                            pro
-                          </span>
-                        )}
-                      </span>
-                    </Link>
-                  </li>
+                  <div
+                    className={`flex content-center items-center menu-dropdown-item ${
+                      isActive(subItem.path)
+                        ? "menu-dropdown-item-active"
+                        : "menu-dropdown-item-inactive"
+                    }`}
+                  >
+                    {" "}
+                    <span>{subItem.icon}</span>
+                    <li key={subItem.name}>
+                      <Link to={subItem.path}>
+                        {subItem.name}
+                        <span className="flex items-center gap-1 ml-auto">
+                          {subItem.new && (
+                            <span
+                              className={`ml-auto ${
+                                isActive(subItem.path)
+                                  ? "menu-dropdown-badge-active"
+                                  : "menu-dropdown-badge-inactive"
+                              } menu-dropdown-badge`}
+                            >
+                              new
+                            </span>
+                          )}
+                          {subItem.pro && (
+                            <span
+                              className={`ml-auto ${
+                                isActive(subItem.path)
+                                  ? "menu-dropdown-badge-active"
+                                  : "menu-dropdown-badge-inactive"
+                              } menu-dropdown-badge`}
+                            >
+                              pro
+                            </span>
+                          )}
+                        </span>
+                      </Link>
+                    </li>
                   </div>
                 ))}
               </ul>
@@ -282,7 +289,6 @@ const AppSidebar: React.FC = () => {
           !isExpanded && !isHovered ? "lg:justify-center" : "justify-start"
         }`}
       >
-    
         <Link to="/">
           {isExpanded || isHovered || isMobileOpen ? (
             <>
@@ -310,9 +316,9 @@ const AppSidebar: React.FC = () => {
             />
           )}
         </Link>
-     <div className="text-1xl font-bold text-gray-900 dark:text-white bg-white dark:bg-gray-900 px-4 py-2 rounded-xl flex justify-center items-center ">
-      Automatix CRM
-    </div>
+        <div className="text-1xl font-bold text-gray-900 dark:text-white bg-white dark:bg-gray-900 px-4 py-2 rounded-xl flex justify-center items-center ">
+          Automatix CRM
+        </div>
       </div>
       <div className="flex flex-col overflow-y-auto duration-300 ease-linear no-scrollbar">
         <nav className="mb-6">
@@ -351,7 +357,6 @@ const AppSidebar: React.FC = () => {
             </div>
           </div>
         </nav>
-       
       </div>
     </aside>
   );

@@ -2,8 +2,33 @@
 layer(base);
 
 @import "tailwindcss";
-
+@tailwind utilities;
 @custom-variant dark (&:is(.dark *));
+
+@layer utilities {
+  .custom-scrollbar {
+    scrollbar-width: thin;
+    scrollbar-color: var(--brand-500) transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar {
+    width: 8px;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-track {
+    background: transparent;
+  }
+
+  .custom-scrollbar::-webkit-scrollbar-thumb {
+    background-color: var(--brand-500);
+    border-radius: 9999px;
+    border: 2px solid transparent;
+    background-clip: content-box;
+  }
+}
+:root {
+  --brand-500: #3b82f6; /* o el color que uses para brand-500 */
+}
 
 @theme {
   --font-*: initial;

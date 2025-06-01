@@ -19,6 +19,7 @@ import AppLayout from "./layout/AppLayout";
 import { ScrollToTop } from "./components/common/ScrollToTop";
 import Agents from "./pages/Agents/Agents";
 import Workana from "./pages/Workana/Workana";
+import Chat from "./pages/Chat";
 
 export default function App() {
   return (
@@ -29,12 +30,14 @@ export default function App() {
           {/* Dashboard Layout */}
           <Route element={<AppLayout />}>
             <Route path="/" element={<Agents />} />
- <Route index path="/agents" element={<Agents />} />
+            <Route path="/chat" element={<Chat />} />
+
+            <Route index path="/agents" element={<Agents />} />
             {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />
             <Route path="/calendar" element={<Calendar />} />
             <Route path="/blank" element={<Blank />} />
-     <Route path="/workana" element={<Workana />} />
+            <Route path="/workana" element={<Workana />} />
             {/* Forms */}
             <Route path="/form-elements" element={<FormElements />} />
 
