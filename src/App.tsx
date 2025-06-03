@@ -20,6 +20,7 @@ import { ScrollToTop } from "./components/common/ScrollToTop";
 import Agents from "./pages/Agents/Agents";
 import Workana from "./pages/Workana/Workana";
 import Chat from "./pages/Chat";
+import Details from "./pages/Details";
 
 export default function App() {
   return (
@@ -31,7 +32,7 @@ export default function App() {
           <Route element={<AppLayout />}>
             <Route path="/" element={<Agents />} />
             <Route path="/chat" element={<Chat />} />
-
+            <Route path="/details" element={<Details />} />
             <Route index path="/agents" element={<Agents />} />
             {/* Others Page */}
             <Route path="/profile" element={<UserProfiles />} />

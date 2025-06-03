@@ -54,12 +54,13 @@ import { ReactComponent as AlertHexaIcon } from "./alert-hexa.svg?react";
 import { ReactComponent as ErrorHexaIcon } from "./info-hexa.svg?react";
 import { ReactComponent as Messages } from "./messages.svg?react";
 import { ReactComponent as Config } from "./config.svg?react";
-import { ReactComponent as Instagram} from "./instagram.svg?react";
-import { ReactComponent as Facebook} from "./facebook.svg?react";
-import { ReactComponent as Whatsapp} from "./whatsapp.svg?react";
-import { ReactComponent as Agent} from "./agent.svg?react";
-import { ReactComponent as Ellipsis} from "./ellipsis.svg?react";
-import { ReactComponent as Circle} from "./circle.svg?react";
+import { ReactComponent as Instagram } from "./instagram.svg?react";
+import { ReactComponent as Facebook } from "./facebook.svg?react";
+import { ReactComponent as Whatsapp } from "./whatsapp.svg?react";
+import { ReactComponent as Agent } from "./agent.svg?react";
+import { ReactComponent as Ellipsis } from "./ellipsis.svg?react";
+import { ReactComponent as Circle } from "./circle.svg?react";
+import { ReactComponent as Meet } from "./meet.svg?react";
 export {
   Circle,
   Ellipsis,
@@ -121,6 +122,7 @@ export {
   Config,
   Facebook,
   Instagram,
-Whatsapp,
-Agent
+  Whatsapp,
+  Agent,
+  Meet,
 };
