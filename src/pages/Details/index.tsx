@@ -70,6 +70,7 @@ const DetailsCompoenent = ({
               <StyledInput
                 className="input"
                 type="text"
+                placeholder="https://meet.google.com/hup-ayjx-riv"
                 value={encrypt ? form.uri : atob(form.uri)}
                 onClick={handleCopyToClipboard}
                 onChange={(e) =>
@@ -114,12 +115,13 @@ const DetailsCompoenent = ({
             <InputGroup>
               <StyledInput
                 className="input"
-                type="text"
+                type="date"
                 value={form.date}
                 onClick={handleCopyToClipboard}
                 onChange={(e) =>
                   editForm ? handleUpdateDate(e.target.value) : null
                 }
+                readOnly={!editForm}
               />
               <IconWrapper
                 data-icon="User"
@@ -142,8 +144,11 @@ const DetailsCompoenent = ({
             <InputGroup>
               <StyledInput
                 className="input"
-                type="text"
-                value={`${form.time} PM`}
+                type="time"
+                min="06:00"
+                max="22:00"
+                readOnly={!editForm}
+                value={form.time}
                 onClick={handleCopyToClipboard}
                 onChange={(e) =>
                   editForm ? handleUpdateTime(e.target.value) : null
@@ -172,9 +177,9 @@ const DetailsCompoenent = ({
 };
 const Details = () => {
   const [form, setForm] = useState({
-    date: "03-25-06",
-    time: "20:00",
-    uri: btoa("meet.google.com/dvd-eeag-qua".trim()),
+    date: "",
+    time: "",
+    uri: btoa(""),
   });
 
   const handleUpdateUri = (input: string) => {
